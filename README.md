@@ -5,6 +5,11 @@ The prediction power of differnt ML models can be compared using equality line (
 
 ## ML models (logistic regression, neural network, and random forest regresion) 
 
+
+## Dataset
+
+Please refer to the repository (https://github.com/AmaniAbri/Neural-Network-for-structured-data) for data loading. 
+
 ## Logistic regression
 
 
