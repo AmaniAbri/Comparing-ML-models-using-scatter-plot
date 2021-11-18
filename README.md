@@ -1,54 +1,49 @@
 # Comparing-ML-models-using-scatter-plot
 
 ## Describtion
-The prediction power of differnt ML models can be compared using equality line (1:1) of the scatter plot. 1:1 line is used as a refrence in 2-D scatter plot to compare sets of data. This line has a slope of 1. The prediction power of ML models can be compared using this line as the best performance of a model has a corresponding scatters fall exactly on the identity line or close to the line. 
+The prediction power of differnt ML models can be compared using equality line (1:1) of the scatter plot. 1:1 line is used as a refrence in 2-D scatter plot to compare the predicted value vs the real value. This line has a slope of 1. The prediction power of ML models can be compared using this line as the best performance of a model has a corresponding scatters fall exactly on the identity line or close to the line. 
 
-## ML models (logistic regression, neural network, and random forest regresion) 
+## ML models (Artifical Neural Network (ANN), and random forest regresion) 
 
 
 ## Dataset
 
 Please refer to the repository (https://github.com/AmaniAbri/Neural-Network-for-structured-data) for data loading. 
 
-## Logistic regression
 
-
-
-
-
-
-
-
-
-
+## Artifical Neural Network (ANN)
+Please refer to the repository (https://github.com/AmaniAbri/Neural-Network-for-structured-data) for ANN model
 
 ## Random forest regressor
 
-
-
-
-# Define Random forest model:
-
-
-
+### Define Random forest model:
+```ruby
 model_RF = RandomForestRegressor(n_estimators=1000,
               max_depth=20,
               random_state=42,
-              verbose=0})
+              verbose=0)
               
  
-# Train model              
+### Train model              
 model_RF.fit(X_train_scaled, Y_train)
 
 
-# Make predictions on test set
+### Make predictions on test set
 ypred_rf = pd.DataFrame(model_RF.predict(X_test_scaled))
 ypred_rf.index = Y_test.index
+
+### Testing the accuracy
 
 meanSquaredError=mean_squared_error(Y_test, ypred_rf )
 print("MSE:", meanSquaredError)
 length = 2018
 xmarks = [i for i in range(1988,length+1,3)]
+```
+
+
+
+## Scatter plot 
+
 # Plot real vs. predicted values for both ANN and RF model
 plt.figure()
 plt.plot(Y_test, label='real')
@@ -83,32 +78,12 @@ ax2.set_xlabel('% deviation: Real - Predicted')
 plt.savefig('Real_vs_Pred_distribution.png')
 
 
-# Let's calculate and visualize the feature importance for our random forest model: 
-nrows = 1
-ncols = 1
-fig, axes = plt.subplots(nrows = nrows, ncols = ncols, figsize=(8,6));
-
-names_regressors = [("Random Forest", model_RF)]
-
-nregressors = 0
-for row in range(nrows):
-    for col in range(ncols):
-        name = names_regressors[nregressors][0]
-        regressor = names_regressors[nregressors][1]
-        indices = np.argsort(regressor.feature_importances_)[::-1][:40]
-        fig = sns.barplot(y=df_train.columns[indices][:40],
-                        x=regressor.feature_importances_[indices][:40] , 
-                        orient='h',ax=axes);
-        fig.set_xlabel("Relative importance",fontsize=12);
-        fig.set_ylabel("Features",fontsize=12);
-        fig.tick_params(labelsize=12);
-        fig.set_title(name + " feature importance");
-        nregressors += 1
-
-plt.savefig('Feature_Importance.png')
 
 
 
 
-## Scatter plot 
+
+
+
+
 
