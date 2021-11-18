@@ -45,6 +45,9 @@ xmarks = [i for i in range(1988,length+1,3)]
 ## Scatter plot 
 
 # Plot real vs. predicted values for both ANN and RF model
+
+```ruby
+
 plt.figure()
 plt.plot(Y_test, label='real')
 plt.plot(Y_train)
@@ -78,7 +81,7 @@ ax2.set_xlabel('% deviation: Real - Predicted')
 plt.savefig('Real_vs_Pred_distribution.png')
 
 
-
+```
 
 
 
