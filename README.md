@@ -44,7 +44,7 @@ xmarks = [i for i in range(1988,length+1,3)]
 
 ## Scatter plot 
 
-# Plot real vs. predicted values for both ANN and RF model
+### Plot real vs. predicted values for both ANN and RF model
 ### y_pred is the predicted value from the ANN model
 
 ```ruby
