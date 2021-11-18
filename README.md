@@ -25,14 +25,14 @@ The prediction power of differnt ML models can be compared using equality line (
 # Define Random forest model:
 
 
-params_RF = {'n_estimators':1000,
-             'max_depth':20,
-             'random_state':42,
-             'verbose': 0}
 
-# Train model 
-
-model_RF = RandomForestRegressor(**params_RF)
+model_RF = RandomForestRegressor(n_estimators=1000,
+              max_depth=20,
+              random_state=42,
+              verbose=0})
+              
+ 
+# Train model              
 model_RF.fit(X_train_scaled, Y_train)
 
 
